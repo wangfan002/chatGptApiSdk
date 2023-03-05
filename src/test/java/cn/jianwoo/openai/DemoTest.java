@@ -152,6 +152,21 @@ public class DemoTest
         CompletionRes res = service.completionsChat(req);
         System.out.println(JSONObject.toJSONString(res));
     }
+    
+    // 连续对话
+    /*public static void main(String[] args) throws ApiException {
+        List<MessageReq> chatList = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
+        String newUserMsg = scan.nextLine();
+        while (!newUserMsg.equals("exit")){
+            chatList.add(MessageReq.builder().role(Role.USER.getName()).content(newUserMsg).build());
+            CompletionReq req = CompletionReq.builder().model(Model.GPT_35_TURBO.getName()).messages(chatList).build();
+            CompletionRes res = service.completionsChat(req);
+            System.out.println(res.getChatContent());
+            chatList.add(MessageReq.builder().role(Role.ASSISTANT.getName()).content(res.getChatContent()).build());
+            newUserMsg = scan.nextLine();
+        }
+    }*/
 
     /**
      *
